@@ -1,0 +1,6 @@
+framework module Pods_FetchYelpApi {
+  umbrella header "Pods-FetchYelpApi-umbrella.h"
+
+  export *
+  module * { export * }
+}
