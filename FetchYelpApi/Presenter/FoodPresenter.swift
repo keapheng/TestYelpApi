@@ -16,15 +16,16 @@ final class FoodPresenter {
     
     var foods: [FoodInfo] = []
     
-    func fetchAllFood() {
+    func fetchAllFood(completion :@escaping (() -> ()) ) {
         userProvider.request(.foodRequest) { (result) in
             switch result {
             case .success(let response):
                 do {
                   let result = try JSONDecoder().decode(Meal.self, from: response.data)
-                    print(result.businesses)
-                    
-                    
+//                    print(result.businesses)
+                  self.foods = result.businesses
+                  completion()
+                  
                 } catch {
                     print(error)
                 }

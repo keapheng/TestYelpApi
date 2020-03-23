@@ -26,7 +26,7 @@ extension Food: TargetType {
     var path: String {
         switch self {
         case .foodRequest:
-            return "/search?term=pasta&location='san jose'&limit=50"
+            return "/search"
         }
     }
     
@@ -37,6 +37,13 @@ extension Food: TargetType {
         }
     }
     
+    var parameterEcoding: ParameterEncoding {
+        switch self {
+        case .foodRequest:
+            return URLEncoding.queryString
+        }
+    }
+    
     var sampleData: Data {
         return Data()
     }
@@ -44,7 +51,9 @@ extension Food: TargetType {
     var task: Task {
         switch self {
         case .foodRequest:
-            return .requestPlain
+//            ?term=pasta&location='san jose'&limit=50
+        let params: [String: Any] = ["term": "pasta", "location": "san jose", "limit": 50]
+        return .requestParameters(parameters: params, encoding: parameterEcoding)
         }
     }
     

@@ -12,6 +12,8 @@ class FoodTableViewCell: UITableViewCell {
 
     @IBOutlet weak var mealCollectionView: UICollectionView!
     
+    var foodPresenter = FoodPresenter()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -19,19 +21,25 @@ class FoodTableViewCell: UITableViewCell {
         mealCollectionView.delegate = self
         
         self.mealCollectionView.register(UINib(nibName: "MealCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "mealCollectionCell")
+        
+        self.mealCollectionView.reloadData()
     }
 
 }
 
 extension FoodTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return foodPresenter.foods.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = mealCollectionView.dequeueReusableCell(withReuseIdentifier: "mealCollectionCell", for: indexPath) as? MealCollectionViewCell
             else { return UICollectionViewCell() }
         
+        print(foodPresenter.foods)
+        
+        cell.foodName.text = foodPresenter.foods[indexPath.item].name
+        cell.reviewAndRating.text = "\(foodPresenter.foods[indexPath.item].rating) Stars, \(foodPresenter.foods[indexPath.item].review_count) Reviews"
         
         return cell
     }
