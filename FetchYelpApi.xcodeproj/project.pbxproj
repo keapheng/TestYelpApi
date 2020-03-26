@@ -20,6 +20,7 @@
 		06E9D0862424A08E00A087AB /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E9D0852424A08E00A087AB /* Food.swift */; };
 		06E9D0892424A2A400A087AB /* FoodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E9D0882424A2A400A087AB /* FoodPresenter.swift */; };
 		06E9D08C2424A3A300A087AB /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E9D08B2424A3A300A087AB /* Meal.swift */; };
+		06EE3CA12429AA3200DBF0B8 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE3CA02429AA3200DBF0B8 /* TermViewController.swift */; };
 		56FCA212B912C717187B12D7 /* Pods_FetchYelpApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B40FA63EE3BE5A82346BD7EA /* Pods_FetchYelpApi.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		06E9D0852424A08E00A087AB /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		06E9D0882424A2A400A087AB /* FoodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPresenter.swift; sourceTree = "<group>"; };
 		06E9D08B2424A3A300A087AB /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		06EE3CA02429AA3200DBF0B8 /* TermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermViewController.swift; sourceTree = "<group>"; };
 		12A78D0907E4E0D190721A2E /* Pods-FetchYelpApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FetchYelpApi.release.xcconfig"; path = "Target Support Files/Pods-FetchYelpApi/Pods-FetchYelpApi.release.xcconfig"; sourceTree = "<group>"; };
 		B40FA63EE3BE5A82346BD7EA /* Pods_FetchYelpApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FetchYelpApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A1124B6B2B8318CECD0C1C /* Pods-FetchYelpApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FetchYelpApi.debug.xcconfig"; path = "Target Support Files/Pods-FetchYelpApi/Pods-FetchYelpApi.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,10 +81,10 @@
 			children = (
 				06E9D065242469D100A087AB /* AppDelegate.swift */,
 				06E9D067242469D100A087AB /* SceneDelegate.swift */,
+				06E9D07924246BAE00A087AB /* Food Table Cell */,
 				06E9D08424249FFA00A087AB /* Endpoint */,
 				06E9D08A2424A35C00A087AB /* Model */,
 				06E9D0872424A28A00A087AB /* Presenter */,
-				06E9D07924246BAE00A087AB /* Food Table Cell */,
 				06E9D07E24246C3C00A087AB /* Views */,
 				06E9D06B242469D100A087AB /* Main.storyboard */,
 				06E9D06E242469D200A087AB /* Assets.xcassets */,
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				06E9D069242469D100A087AB /* ViewController.swift */,
+				06EE3CA02429AA3200DBF0B8 /* TermViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				06E9D066242469D100A087AB /* AppDelegate.swift in Sources */,
 				06E9D08C2424A3A300A087AB /* Meal.swift in Sources */,
 				06E9D0892424A2A400A087AB /* FoodPresenter.swift in Sources */,
+				06EE3CA12429AA3200DBF0B8 /* TermViewController.swift in Sources */,
 				06E9D068242469D100A087AB /* SceneDelegate.swift in Sources */,
 				06E9D0862424A08E00A087AB /* Food.swift in Sources */,
 			);

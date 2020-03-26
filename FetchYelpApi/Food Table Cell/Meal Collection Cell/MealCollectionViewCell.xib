@@ -16,9 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="527" height="367"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Pk-sp-Xb4">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="7Pk-sp-Xb4">
                         <rect key="frame" x="20" y="0.0" width="321" height="140"/>
-                        <color key="backgroundColor" red="0.82181947970000002" green="0.48120275959999997" blue="0.74242479809999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="140" id="AL7-pn-WFC"/>
                             <constraint firstAttribute="width" constant="321" id="bEK-Lc-3Q8"/>
@@ -53,10 +52,14 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="527" height="367"/>
             <connections>
+                <outlet property="foodImageView" destination="7Pk-sp-Xb4" id="gWI-Nz-nea"/>
                 <outlet property="foodName" destination="6hE-G3-tuv" id="DO9-rh-zK6"/>
                 <outlet property="reviewAndRating" destination="3Ff-ui-WrC" id="yb7-hX-Nb2"/>
             </connections>
             <point key="canvasLocation" x="81.884057971014499" y="189.84375"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="no-image" width="800" height="600"/>
+    </resources>
 </document>

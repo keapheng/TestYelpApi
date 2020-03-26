@@ -36,7 +36,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Business Search" id="soa-A1-tHz"/>
+                    <navigationItem key="navigationItem" title="Business Search" id="soa-A1-tHz">
+                        <barButtonItem key="rightBarButtonItem" title="Change" id="LCj-73-hmm">
+                            <connections>
+                                <segue destination="evW-Oz-wjQ" kind="presentation" id="ahw-YS-bwt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="foodTableView" destination="KZO-uN-0Pc" id="AMx-Vi-1oP"/>
                     </connections>
@@ -44,6 +50,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+        </scene>
+        <!--Term View Controller-->
+        <scene sceneID="r98-fF-tog">
+            <objects>
+                <viewController id="evW-Oz-wjQ" customClass="TermViewController" customModule="FetchYelpApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AAL-uq-tnx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter food name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qx-LT-7RT">
+                                <rect key="frame" x="20" y="30" width="374" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="HUz-L6-JCF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdX-vU-nx0">
+                                <rect key="frame" x="40" y="115" width="334" height="45"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="OJg-Ar-RKB"/>
+                                </constraints>
+                                <state key="normal" title="Request">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="requestPressed:" destination="evW-Oz-wjQ" eventType="touchUpInside" id="o5f-lh-Gcw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4qx-LT-7RT" firstAttribute="top" secondItem="WMu-Fe-wNO" secondAttribute="top" constant="30" id="2es-ea-gOa"/>
+                            <constraint firstItem="WMu-Fe-wNO" firstAttribute="trailing" secondItem="TdX-vU-nx0" secondAttribute="trailing" constant="40" id="BPL-pB-eGE"/>
+                            <constraint firstItem="WMu-Fe-wNO" firstAttribute="trailing" secondItem="4qx-LT-7RT" secondAttribute="trailing" constant="20" id="K9p-7S-Acs"/>
+                            <constraint firstItem="TdX-vU-nx0" firstAttribute="top" secondItem="4qx-LT-7RT" secondAttribute="bottom" constant="40" id="L1o-Zm-fkT"/>
+                            <constraint firstItem="TdX-vU-nx0" firstAttribute="leading" secondItem="WMu-Fe-wNO" secondAttribute="leading" constant="40" id="VFU-yP-cW0"/>
+                            <constraint firstItem="4qx-LT-7RT" firstAttribute="leading" secondItem="WMu-Fe-wNO" secondAttribute="leading" constant="20" id="bki-AA-Z6W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WMu-Fe-wNO"/>
+                    </view>
+                    <connections>
+                        <outlet property="termLabel" destination="4qx-LT-7RT" id="qpT-8M-bh3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vvI-9y-bN3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1871.0144927536232" y="130.58035714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="khd-B5-1ht">

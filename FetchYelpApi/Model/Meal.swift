@@ -18,3 +18,6 @@ struct FoodInfo: Decodable {
     var review_count: Int
     var rating: Float
 }
+
+
+

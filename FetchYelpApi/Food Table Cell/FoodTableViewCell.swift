@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FoodTableViewCell: UITableViewCell {
 
     @IBOutlet weak var mealCollectionView: UICollectionView!
     
-    var foodPresenter = FoodPresenter()
+    var foodPresenter: FoodPresenter! {
+        didSet {
+            mealCollectionView.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,24 +27,34 @@ class FoodTableViewCell: UITableViewCell {
         
         self.mealCollectionView.register(UINib(nibName: "MealCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "mealCollectionCell")
         
-        self.mealCollectionView.reloadData()
     }
 
 }
 
 extension FoodTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return foodPresenter.foods.count
+        return foodPresenter.foods[section].count
     }
-    
+        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = mealCollectionView.dequeueReusableCell(withReuseIdentifier: "mealCollectionCell", for: indexPath) as? MealCollectionViewCell
             else { return UICollectionViewCell() }
         
-        print(foodPresenter.foods)
+//        let imageUrl = URL(string: foodPresenter.foods[indexPath.item].image_url)
+//        cell.foodImageView.kf.setImage(with: imageUrl)
+//        cell.foodName.text = foodPresenter.foods[indexPath.item].name
+//
+//        cell.reviewAndRating.text = "\(foodPresenter.foods[indexPath.item].rating) Stars, \(foodPresenter.foods[indexPath.item].review_count) Reviews"
         
-        cell.foodName.text = foodPresenter.foods[indexPath.item].name
-        cell.reviewAndRating.text = "\(foodPresenter.foods[indexPath.item].rating) Stars, \(foodPresenter.foods[indexPath.item].review_count) Reviews"
+        let imageUrl = URL(string: foodPresenter.foods[indexPath.section][indexPath.row].image_url)
+        let foodName = foodPresenter.foods[indexPath.section][indexPath.row].name
+        let rating = foodPresenter.foods[indexPath.section][indexPath.row].rating
+        let reviewCount = foodPresenter.foods[indexPath.section][indexPath.row].review_count
+        
+        
+        cell.foodImageView.kf.setImage(with: imageUrl)
+        cell.foodName.text = foodName
+        cell.reviewAndRating.text = "\(rating) Stars, \(reviewCount) Reviews"
         
         return cell
     }
