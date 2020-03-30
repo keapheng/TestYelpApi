@@ -24,9 +24,8 @@ class FoodTableViewCell: UITableViewCell {
         
         mealCollectionView.dataSource = self
         mealCollectionView.delegate = self
-        
         self.mealCollectionView.register(UINib(nibName: "MealCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "mealCollectionCell")
-        
+                
     }
 
 }
@@ -40,18 +39,13 @@ extension FoodTableViewCell: UICollectionViewDataSource {
         guard let cell = mealCollectionView.dequeueReusableCell(withReuseIdentifier: "mealCollectionCell", for: indexPath) as? MealCollectionViewCell
             else { return UICollectionViewCell() }
         
-//        let imageUrl = URL(string: foodPresenter.foods[indexPath.item].image_url)
-//        cell.foodImageView.kf.setImage(with: imageUrl)
-//        cell.foodName.text = foodPresenter.foods[indexPath.item].name
-//
-//        cell.reviewAndRating.text = "\(foodPresenter.foods[indexPath.item].rating) Stars, \(foodPresenter.foods[indexPath.item].review_count) Reviews"
-        
         let imageUrl = URL(string: foodPresenter.foods[indexPath.section][indexPath.row].image_url)
         let foodName = foodPresenter.foods[indexPath.section][indexPath.row].name
         let rating = foodPresenter.foods[indexPath.section][indexPath.row].rating
         let reviewCount = foodPresenter.foods[indexPath.section][indexPath.row].review_count
         
         
+        cell.foodImageView.kf.indicatorType = .activity  // Add loading indicator kingfisher
         cell.foodImageView.kf.setImage(with: imageUrl)
         cell.foodName.text = foodName
         cell.reviewAndRating.text = "\(rating) Stars, \(reviewCount) Reviews"
@@ -66,3 +60,4 @@ extension FoodTableViewCell: UICollectionViewDelegateFlowLayout {
         return CGSize(width: self.mealCollectionView.frame.width / 1.3, height: self.mealCollectionView.frame.height)
     }
 }
+

@@ -11,7 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var foodTableView: UITableView!
-    let spinner = UIActivityIndicatorView(style: .large)
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var spinner = UIActivityIndicatorView(style: .large)
     let foodPresenter = FoodPresenter()
     var screenView: UIView?
     
@@ -20,23 +23,29 @@ class ViewController: UIViewController {
         
         self.setUpTableView()
         self.startSpinner()
+
+        searchBar.delegate = self
         
         foodPresenter.fetchAllFood { [weak self] in
             guard let this = self else { return }
             this.foodTableView.reloadData()
             this.stopSpinner()
         }
-
         
     }
 
     func startSpinner() {
+//        screenView = UIView(frame: UIScreen.main.bounds)
+            
         screenView = UIView(frame: self.view.bounds)
+        
         screenView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         spinner.center = self.view.center
         self.view.addSubview(screenView!)
         self.view.addSubview(spinner)
+        
         spinner.startAnimating()
+        
     }
     
     func stopSpinner() {
@@ -54,15 +63,13 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodPresenter.foods.count
+        return foodPresenter.numberOfRow
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = foodTableView.dequeueReusableCell(withIdentifier: "foodTableCell", for: indexPath) as? FoodTableViewCell
             else { return UITableViewCell() }
       
-        
-        
         cell.foodPresenter = foodPresenter
         
         return cell
@@ -74,4 +81,12 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.foodTableView.frame.height / 2.8
     }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+
+    }
+    
 }

@@ -9,16 +9,14 @@
 import UIKit
 
 class TermViewController: UIViewController {
-
-    @IBOutlet weak var termLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-    
-    @IBAction func requestPressed(_ sender: Any) {
+       self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        
+        
         
     }
-    
+
 }
