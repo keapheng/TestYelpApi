@@ -16,7 +16,7 @@ enum Food {
     case foodRequest(term: String)
 }
 
-extension Food:  TargetType {
+extension Food: TargetType {
     var baseURL: URL {
         switch self {
         case .foodRequest:

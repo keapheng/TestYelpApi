@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var foodTableView: UITableView!
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var spinner = UIActivityIndicatorView(style: .large)
+//    var spinner = UIActivityIndicatorView(style: .large)
+    let activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 80, height: 80), type: .ballSpinFadeLoader, color: .gray, padding: nil)
+
     let foodPresenter = FoodPresenter()
     var screenView: UIView?
     
@@ -23,10 +25,9 @@ class ViewController: UIViewController {
         
         self.setUpTableView()
         self.startSpinner()
-
         searchBar.delegate = self
         
-        foodPresenter.fetchAllFood { [weak self] in
+        foodPresenter.fetchAllFood(foodTerm: "pasta") { [weak self] in
             guard let this = self else { return }
             this.foodTableView.reloadData()
             this.stopSpinner()
@@ -35,22 +36,18 @@ class ViewController: UIViewController {
     }
 
     func startSpinner() {
-//        screenView = UIView(frame: UIScreen.main.bounds)
-            
-        screenView = UIView(frame: self.view.bounds)
-        
+        screenView = UIView(frame: UIScreen.main.bounds)
         screenView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        spinner.center = self.view.center
-        self.view.addSubview(screenView!)
-        self.view.addSubview(spinner)
-        
-        spinner.startAnimating()
+        activityIndicatorView.center = self.view.center
+        self.navigationController?.view.addSubview(screenView!)
+        screenView?.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
         
     }
     
     func stopSpinner() {
         screenView?.removeFromSuperview()
-        spinner.stopAnimating()
+        activityIndicatorView.stopAnimating()
     }
 
     func setUpTableView() {
@@ -71,7 +68,6 @@ extension ViewController: UITableViewDataSource {
             else { return UITableViewCell() }
       
         cell.foodPresenter = foodPresenter
-        
         return cell
     }
     
@@ -85,8 +81,16 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        startSpinner()
+        foodPresenter.foods = []
+        foodPresenter.fetchAllFood(foodTerm: searchBar.text!) { [weak self] in
+            guard let this = self else { return }
+            this.foodTableView.reloadData()
+            this.stopSpinner()
+        }
+        searchBar.text = ""
         searchBar.endEditing(true)
-
+        
     }
     
 }

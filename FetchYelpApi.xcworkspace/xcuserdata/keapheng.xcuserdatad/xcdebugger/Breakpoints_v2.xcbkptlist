@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
             endingLineNumber = "31"
-            landmarkName = "fetchAllFood(completion:)"
+            landmarkName = "fetchAllFood(foodTerm:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -32,7 +32,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
             endingLineNumber = "35"
-            landmarkName = "fetchAllFood(completion:)"
+            landmarkName = "fetchAllFood(foodTerm:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

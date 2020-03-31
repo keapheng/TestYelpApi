@@ -7,22 +7,28 @@ PODS:
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 5.0)
   - Moya (~> 14.0)
+  - NVActivityIndicatorView
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
     - Moya
+    - NVActivityIndicatorView
 
 SPEC CHECKSUMS:
   Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
 
-PODFILE CHECKSUM: 489c4d21e5d5bd9e980f8a288a5e47c14d9da82c
+PODFILE CHECKSUM: 011ac37d49f7c906081700d755c684eb00cff08a
 
 COCOAPODS: 1.8.4

@@ -24,8 +24,8 @@ final class FoodPresenter {
         return foods.count
     }
             
-    func fetchAllFood(completion :@escaping (() -> ()) ) {
-        userProvider.request(.foodRequest(term: "pasta")) { (result) in
+    func fetchAllFood(foodTerm: String, completion :@escaping (() -> ()) ) {
+        userProvider.request(.foodRequest(term: foodTerm)) { (result) in
             switch result {
             case .success(let response):
                 do {
@@ -47,7 +47,7 @@ final class FoodPresenter {
     }
     
     func requestAllFood2(completion :@escaping (() -> ()) ) {
-          userProvider.request(.foodRequest(term: "pototoes")) { (result) in
+          userProvider.request(.foodRequest(term: "fastfood")) { (result) in
                     switch result {
                     case .success(let response):
                         do {

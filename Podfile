@@ -9,5 +9,6 @@ target 'FetchYelpApi' do
 
    pod 'Moya', '~> 14.0'
    pod 'Kingfisher', '~> 5.0'
+   pod 'NVActivityIndicatorView'
 
 end
