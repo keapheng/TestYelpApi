@@ -13,6 +13,9 @@ class FoodTableViewCell: UITableViewCell {
 
     @IBOutlet weak var mealCollectionView: UICollectionView!
     
+    // Here what I changed
+    var didSelectItemAction: ((_ imageUrl: String, _ name: String, _ rating: Float, _ review: Int) -> Void)?
+    
     var foodPresenter: FoodPresenter! {
         didSet {
             mealCollectionView.reloadData()
@@ -53,6 +56,17 @@ extension FoodTableViewCell: UICollectionViewDataSource {
         return cell
     }
     
+    // Here what I Changed
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let imageUrl = foodPresenter.foods[indexPath.section][indexPath.row].image_url
+        let foodName = foodPresenter.foods[indexPath.section][indexPath.row].name
+        let rating = foodPresenter.foods[indexPath.section][indexPath.row].rating
+        let reviewCount = foodPresenter.foods[indexPath.section][indexPath.row].review_count
+        
+        didSelectItemAction?(imageUrl, foodName, rating, reviewCount)
+    }
+
+
 }
 
 extension FoodTableViewCell: UICollectionViewDelegateFlowLayout {
